@@ -19,6 +19,7 @@ ${output_folder}    ${CURDIR}${/}RobotOutput
 Download And Begin
     ${URL} =    Get Secret    URL
     Open Chrome Browser    ${URL}[orderURL]
+    Sleep    5s
     Download    ${URL}[csvURL]  overwrite=True
     
 #Foreach row in csv file complete order, take screenshot and Create pdf
