@@ -18,7 +18,8 @@ ${output_folder}    ${CURDIR}${/}RobotOutput
 *** Tasks ***
 Download And Begin
     ${URL} =    Get Secret    URL
-    Open Chrome Browser    ${URL}[orderURL]
+    Log    ${URL}
+    Open Available Browser    ${URL}[orderURL]
     Sleep    5s
     Download    ${URL}[csvURL]  overwrite=True
     
