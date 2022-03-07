@@ -12,14 +12,14 @@ Library           RPA.Robocorp.Vault
 
 ***Variables***
 ${output_folder}    ${CURDIR}${/}RobotOutput
-${URLs}            https://robotsparebinindustries.com/#/robot-order
 
 
 
 *** Tasks ***
 Download And Begin
-    Open Chrome Browser    ${URLs}
-    Download     https://robotsparebinindustries.com/orders.csv        overwrite=True
+    ${URL} =    Get Secret    URL
+    Open Chrome Browser    ${URL}[orderURL]
+    Download    ${URL}[csvURL]  overwrite=True
     
 #Foreach row in csv file complete order, take screenshot and Create pdf
 Complete Order
